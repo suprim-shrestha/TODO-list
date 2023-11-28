@@ -27,14 +27,13 @@ const addToList = (taskObj, index, taskList) => {
   var li = document.createElement("li");
   li.textContent = taskObj.task;
 
-  var radioBtn = document.createElement("input");
-  radioBtn.type = "radio";
-  radioBtn.name = "taskStatus";
-  radioBtn.checked = taskObj.isCompleted;
-  radioBtn.onclick = () => {
+  var checkbox = document.createElement("input");
+  checkbox.type = "checkbox";
+  checkbox.checked = taskObj.isCompleted;
+  checkbox.onclick = () => {
     toggleTaskCompletion(index);
   };
-  li.appendChild(radioBtn);
+  li.appendChild(checkbox);
 
   var deleteBtn = document.createElement("button");
   deleteBtn.textContent = "Delete";
@@ -51,7 +50,7 @@ const addToList = (taskObj, index, taskList) => {
 };
 
 const renderAllTasks = () => {
-  var taskList = document.getElementById("all-task-list");
+  var taskList = document.getElementById("all-tasks-list");
   taskList.innerHTML = "";
 
   tasks.forEach((taskObj, index) => {
@@ -60,7 +59,7 @@ const renderAllTasks = () => {
 };
 
 const renderCompletedTasks = () => {
-  var taskList = document.getElementById("completed-task-list");
+  var taskList = document.getElementById("completed-tasks-list");
   taskList.innerHTML = "";
 
   tasks.forEach((taskObj, index) => {
@@ -71,7 +70,7 @@ const renderCompletedTasks = () => {
 };
 
 const renderIncompleteTasks = () => {
-  var taskList = document.getElementById("incomplete-task-list");
+  var taskList = document.getElementById("incomplete-tasks-list");
   taskList.innerHTML = "";
 
   tasks.forEach((taskObj, index) => {
