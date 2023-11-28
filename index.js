@@ -36,6 +36,13 @@ const addToList = (taskObj, index, taskList) => {
   };
   li.appendChild(radioBtn);
 
+  var deleteBtn = document.createElement("button");
+  deleteBtn.textContent = "Delete";
+  deleteBtn.onclick = () => {
+    deleteTask(index);
+  };
+  li.appendChild(deleteBtn);
+
   if (taskObj.isCompleted) {
     li.style.textDecoration = "line-through";
   }
@@ -79,3 +86,8 @@ const toggleTaskCompletion = (index) => {
   renderTasks();
   //   console.log(tasks);
 };
+
+function deleteTask(index) {
+  tasks.splice(index, 1);
+  renderTasks();
+}
