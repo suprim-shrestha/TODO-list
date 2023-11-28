@@ -1,0 +1,42 @@
+.container {
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.tasks {
+  margin-top: 50px;
+  width: 100%;
+  min-height: 600px;
+  position: relative;
+  &__selector {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    &-item {
+      background: #ddd;
+      height: 50px;
+      width: 30%;
+      border-radius: 15px 15px 0 0;
+      text-align: center;
+      line-height: 50px;
+      cursor: pointer;
+      z-index: 2;
+    }
+  }
+  &__list {
+    position: absolute;
+    min-height: 100%;
+    width: 100%;
+    background: #ddd;
+    border-radius: 0 0px 15px 15px;
+    box-shadow: 0px 10px 15px 0px rgba(0, 0, 0, 0.5);
+  }
+}
+
+#all-tasks {
+  z-index: 1;
+}
+#all-tasks-top {
+  box-shadow: 0px 40px 30px -30px rgba(0, 0, 0, 0.5) inset;
+}
