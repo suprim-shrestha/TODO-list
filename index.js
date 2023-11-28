@@ -2,6 +2,9 @@ var tasks = [];
 const inputField = document.getElementById("input-field");
 const taskForm = document.getElementById("task-form");
 
+const searchInput = document.getElementById("search-input");
+searchInput.addEventListener("input", () => renderTasks());
+
 taskForm.addEventListener("submit", function (event) {
   event.preventDefault();
   addTask();
@@ -12,7 +15,6 @@ const addTask = () => {
   if (taskValue.trim() !== "") {
     tasks.push({ task: taskValue, isCompleted: false });
     inputField.value = "";
-    // console.log(tasks);
     renderTasks();
   }
 };
@@ -24,29 +26,32 @@ const renderTasks = () => {
 };
 
 const addToList = (taskObj, index, taskList) => {
-  var li = document.createElement("li");
-  li.textContent = taskObj.task;
+  var searchText = searchInput.value.toLowerCase();
+  if (taskObj.task.toLowerCase().includes(searchText)) {
+    var li = document.createElement("li");
+    li.textContent = taskObj.task;
 
-  var checkbox = document.createElement("input");
-  checkbox.type = "checkbox";
-  checkbox.checked = taskObj.isCompleted;
-  checkbox.onclick = () => {
-    toggleTaskCompletion(index);
-  };
-  li.appendChild(checkbox);
+    var checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.checked = taskObj.isCompleted;
+    checkbox.onclick = () => {
+      toggleTaskCompletion(index);
+    };
+    li.appendChild(checkbox);
 
-  var deleteBtn = document.createElement("button");
-  deleteBtn.textContent = "Delete";
-  deleteBtn.onclick = () => {
-    deleteTask(index);
-  };
-  li.appendChild(deleteBtn);
+    var deleteBtn = document.createElement("button");
+    deleteBtn.textContent = "Delete";
+    deleteBtn.onclick = () => {
+      deleteTask(index);
+    };
+    li.appendChild(deleteBtn);
 
-  if (taskObj.isCompleted) {
-    li.style.textDecoration = "line-through";
+    if (taskObj.isCompleted) {
+      li.style.textDecoration = "line-through";
+    }
+
+    taskList.appendChild(li);
   }
-
-  taskList.appendChild(li);
 };
 
 const renderAllTasks = () => {
@@ -83,7 +88,6 @@ const renderIncompleteTasks = () => {
 const toggleTaskCompletion = (index) => {
   tasks[index].isCompleted = !tasks[index].isCompleted;
   renderTasks();
-  //   console.log(tasks);
 };
 
 function deleteTask(index) {
