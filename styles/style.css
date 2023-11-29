@@ -4,6 +4,15 @@
   font-family: "Courier New", Courier, monospace;
 }
 
+body {
+  font-size: 20px;
+}
+@media screen and (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+}
+
 .container {
   width: 80%;
   margin: 0 auto;
@@ -21,7 +30,6 @@ input {
   width: 100%;
   padding: 20px 30px;
   border-radius: 20px;
-  font-size: 20px;
   line-height: 1;
 }
 
@@ -71,7 +79,6 @@ input {
 }
 .tasks__list-item {
   padding: 15px;
-  font-size: 20px;
   font-weight: 600;
   width: 100%;
   display: flex;
@@ -100,7 +107,7 @@ input {
 }
 .tasks__selector-item {
   background: #ddd;
-  height: 50px;
+  min-height: 50px;
   width: 30%;
   border-radius: 15px 15px 0 0;
   text-align: center;
