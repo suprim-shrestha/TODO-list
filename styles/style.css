@@ -1,7 +1,56 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Courier New", Courier, monospace;
+}
+
 .container {
   width: 80%;
   margin: 0 auto;
   text-align: center;
+}
+
+button {
+  appearance: none;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+input {
+  width: 100%;
+  padding: 20px 30px;
+  border-radius: 20px;
+  font-size: 20px;
+  line-height: 1;
+}
+
+.search {
+  max-width: 100%;
+  position: relative;
+  margin: 40px 0;
+}
+.search__icon {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.add-task {
+  max-width: 100%;
+  position: relative;
+}
+
+.add-btn {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+}
+.add-btn:hover {
+  background: lightblue;
 }
 
 .tasks {
@@ -9,6 +58,40 @@
   width: 100%;
   min-height: 600px;
   position: relative;
+}
+.tasks__list {
+  margin: 0 auto;
+  width: 95%;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  text-align: left;
+}
+.tasks__list-item {
+  padding: 15px;
+  font-size: 20px;
+  font-weight: 600;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #aaa;
+}
+.tasks__button {
+  display: flex;
+  gap: 20px;
+}
+.tasks__button-complete {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: 3px solid #aaa;
+  background: none;
+}
+.tasks__button-delete {
+  text-decoration: none;
 }
 .tasks__selector {
   width: 100%;
@@ -25,7 +108,8 @@
   cursor: pointer;
   z-index: 2;
 }
-.tasks__list {
+.tasks__wrapper {
+  padding: 30px 0;
   position: absolute;
   min-height: 100%;
   width: 100%;
@@ -40,6 +124,14 @@
 
 #all-tasks-top {
   box-shadow: 0px 40px 30px -30px rgba(0, 0, 0, 0.5) inset;
+}
+
+.task--completed {
+  text-decoration: line-through;
+  color: #777;
+}
+.task--completed .tasks__button-complete {
+  background: #aaa;
 }
 
 /*# sourceMappingURL=style.css.map */
